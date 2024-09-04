@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #yes {
+            background-color: pink;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: black;
+        }
+        #result {
+            color: rgb(146, 247, 15);
+        }
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 50px;
+            height: 70px;
+            background-color: red;
+            border-radius: 50% 50% 50% 50%;
+            box-shadow: inset -15px -15px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
+            animation: fly 5s ease-in-out infinite;
+            z-index: 100;
+        }
+        @keyframes fly {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+        .party-lights {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: none;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .party-light {
+            width: 40px;
+            height: 40px;
+            background-color: yellow;
+            border-radius: 50%;
+            box-shadow: 0px 0px 25px rgba(255, 255, 0, 0.8);
+            transition: background-color 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Dearest 🤞❤️</h1>
+        <h2>I've prepared some lines for you</h2>
+        
+        <p>Maana tumko chand maine kya tum mujhko tara manogi,</p>
+        <p>Maana tumko Chand Maine Kya Tum Mujhko Tara Manogi?</p>
+        <p>Rakhlo meri jaan bhi tum, par kya mujhko apna manogi?</p>
+        <p>Manogi mujhko voh jariya jo duniya se waqif hai?</p>
+        <p>Meri duniya tum rakhlo, par kya mujhko apni duniya manogi?</p>
+        <p>Gehre se gehre andhere mein bhi hath pakadke sath nibhaunga</p>
+        <p>Hontho pe hansi sadha aise lamhe dikhaunga</p>
+        <p>Maana tumko chand maine kya tum mujhko tara manogi,</p>
+        <p>Maana tumko Chand Maine Kya Tum Mujhko Tara Manogi?</p>
+
+        <h3>Will you be mine?</h3>
+        
+        <div class="buttons">
+            <button id="yes">Yes</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <div class="party-lights" id="party-lights">
+        <div class="party-light"></div>
+        <div class="party-light"></div>
+        <div class="party-light"></div>
+        <div class="party-light"></div>
+        <div class="party-light"></div>
+    </div>
+
+    <script>
+        document.getElementById("yes").addEventListener("click", function() {
+            document.getElementById("result").innerHTML = "Yay! I'm so happy you said yes! Forever and always, my love❤️😘!";
+            showBalloons();
+            showPartyLights();
+        });
+
+        function showBalloons() {
+            for (let i = 0; i < 30; i++) {
+                const balloon = document.createElement('div');
+                balloon.classList.add('balloon');
+                balloon.style.left = Math.random() * 100 + 'vw';
+                balloon.style.backgroundColor = getRandomColor();
+                balloon.style.transition = `transform ${Math.random() * 2 + 3}s ease-in-out`;
+                document.body.appendChild(balloon);
+
+                setTimeout(() => {
+                    balloon.style.transform = `translateY(-100vh) rotate(${Math.random() * 360}deg)`;
+                }, 100);
+
+                setTimeout(() => {
+                    balloon.remove();
+                }, 5000);
+            }
+        }
+
+        function getRandomColor() {
+            const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FF33A8', '#33FFA8'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function showPartyLights() {
+            const lights = document.getElementById('party-lights');
+            lights.style.display = 'flex';
+
+            setInterval(() => {
+                document.querySelectorAll('.party-light').forEach(light => {
+                    light.style.backgroundColor = getRandomColor();
+                    light.style.boxShadow = `0px 0px 30px ${light.style.backgroundColor}`;
+                });
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

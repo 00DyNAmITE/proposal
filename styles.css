@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('pic/9-94352_beautiful-scenery-pics-beautiful-scenery-wallpapers-beautiful-scenery.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pic/9-94352_beautiful-scenery-pics-beautiful-scenery-wallpapers-beautiful-scenery.jpg');
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container h1 {
+    color: #ff6f61; /* Coral */
+}
+
+.container h2 {
+    color: #ffcccb; /* Light Pink */
+}
+
+.buttons button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#yes {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+
+#no {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+#yes:hover, #no:hover {
+    opacity: 0.8;
+}
+
+#yes:focus, #no:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.container h3 {
+    color: #ff6347; /* Tomato */
+}
+
+.container p {
+    color: #e0ffff; /* Light Cyan */
+}
+
+.party-lights {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: none;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.party-light {
+    width: 40px;
+    height: 40px;
+    background-color: #ffff00; /* Yellow */
+    border-radius: 50%;
+    box-shadow: 0px 0px 25px rgba(255, 255, 0, 0.8);
+    transition: background-color 1s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+button:hover {
+    animation: pulse 1s ease-in-out;
+}
+
+@media only screen and (max-width: 600px) {
+    .buttons {
+        position: relative;
+        height: 150px;
+    }
+    
+    #yes {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #no {
+        position: absolute;
+        top: 20%;
+        left: 80%;
+    }
+}
